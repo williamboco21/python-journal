@@ -4,6 +4,10 @@ body {
     margin: 0;
 }
 
+input {
+    margin-left: 15rem;
+}
+
 .content {
     margin-top: 10rem;
     text-align: center;
@@ -16,3 +20,4 @@ table, th, td {
 .title-add {
     margin-bottom: 5rem;
 }
+

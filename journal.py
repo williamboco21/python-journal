@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, redirect, request
+import datetime
 import json
 
 # initializing the application object
@@ -32,9 +33,15 @@ def login():
 def add(filename='data.json'):
     if request.method == "POST":
         title = request.form['title']
-        date = request.form['date']
+        date = datetime.datetime.now().strftime('%Y-%m-%d')
         body = request.form['body']
 
+        # Serializing the Date Object via custom method
+        def default(obj):
+            if isinstance(obj, (datetime.date, datetime.datetime)):
+                return obj.isoformat()
+
+        # Appending the form values
         with open("data.json") as json_file:
             content = json.load(json_file)
             val = content["journal"]
@@ -45,8 +52,9 @@ def add(filename='data.json'):
             }
             val.append(values)
 
+        # Writing the contents into the file
         with open(filename, 'w') as f:
-            json.dump(content, f, indent=4, sort_keys=True)
+            json.dump(content, f, indent=4, sort_keys=True, default=default)
 
         return render_template('home.html', data=data)
     return render_template('add.html')
