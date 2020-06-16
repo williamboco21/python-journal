@@ -21,7 +21,7 @@
             <td>{{ journal.date }}</td>
             <td>{{ journal.body }}</td>
             <td>
-                <a href="{{ url_for('delete') }}" value="{{ journal.title }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete this entry?')">Delete</a>
+                <a href="{{ url_for('delete') }}"  class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete this entry?')">Delete</a>
             </td>
         </tr>
         {% endfor %}

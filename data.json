@@ -1,24 +1,28 @@
 {
     "journal": [
         {
-            "body": "I love Python",
+            "body": "This my first text in the body",
             "date": "2020-06-16",
-            "title": "Hello"
-        },
-        {
-            "body": "I watched anime all day",
-            "date": "2020-06-16",
+            "id": 2,
             "title": "My Journal"
         },
         {
-            "body": "I woke up at 10:00AM",
+            "body": "rwerwerew",
             "date": "2020-06-16",
-            "title": "Second Day of Journal"
+            "id": 2,
+            "title": "rwqr23"
         },
         {
-            "body": "52352352",
+            "body": "35252",
             "date": "2020-06-16",
-            "title": "wetwtewt"
+            "id": 3,
+            "title": "rwerwe"
+        },
+        {
+            "body": "erwerwerwe",
+            "date": "2020-06-16",
+            "id": 4,
+            "title": "53255325"
         }
     ]
 }
