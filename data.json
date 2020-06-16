@@ -1,0 +1,24 @@
+{
+    "journal": [
+        {
+            "body": "I love Python",
+            "date": "2020-06-16",
+            "title": "Hello"
+        },
+        {
+            "body": "I watched anime all day",
+            "date": "2020-06-16",
+            "title": "My Journal"
+        },
+        {
+            "body": "I woke up at 10:00AM",
+            "date": "2020-06-16",
+            "title": "Second Day of Journal"
+        },
+        {
+            "body": "I love Python",
+            "date": "2020-06-16",
+            "title": "Hi there"
+        }
+    ]
+}
