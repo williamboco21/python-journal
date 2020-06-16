@@ -6,6 +6,7 @@ body {
 
 input {
     margin-left: 15rem;
+    width: 60%;
 }
 
 .content {

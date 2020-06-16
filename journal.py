@@ -32,10 +32,6 @@ def login():
 @app.route('/add', methods=['GET', 'POST'])
 def add(filename='data.json'):
     if request.method == "POST":
-        title = request.form['title']
-        date = datetime.datetime.now().strftime('%Y-%m-%d')
-        body = request.form['body']
-
         # Serializing the Date Object via custom method
         def default(obj):
             if isinstance(obj, (datetime.date, datetime.datetime)):
@@ -43,6 +39,9 @@ def add(filename='data.json'):
 
         # Appending the form values
         with open("data.json") as json_file:
+            title = request.form['title']
+            date = datetime.datetime.now().strftime('%Y-%m-%d')
+            body = request.form['body']
             content = json.load(json_file)
             val = content["journal"]
             values = {
@@ -52,15 +51,16 @@ def add(filename='data.json'):
             }
             val.append(values)
 
-        # Writing the contents into the file
-        with open(filename, 'w') as f:
-            json.dump(content, f, indent=4, sort_keys=True, default=default)
-
-        return render_template('home.html', data=data)
-    return render_template('add.html')
+            # Writing the contents into the file
+            with open(filename, 'w') as f:
+                json.dump(content, f, indent=4, sort_keys=True, default=default)
+                return redirect(url_for('home'))
+    return render_template('add.html', data=data)
 
 
 # Delete Function
 @app.route('/delete')
 def delete():
+
+    data.remove()
     return render_template('home.html', data=data)
