@@ -10,10 +10,11 @@ with open('data.json', 'r') as f:
     data = json.load(f)
 
 # Function to get the id of the list
-def get_id(data, id):
-    for i in data:
+def get_id(val, id):
+    for i in val:
         if i['id'] == id:
             return i
+
 
 # Home Decorator
 @app.route('/home')
@@ -58,18 +59,26 @@ def add(filename='data.json'):
             # Writing the contents into the file
             with open(filename, 'w') as f:
                 json.dump(cont, f, indent=4, sort_keys=True)
-                home = '/home'
+                home = 'home'
 
-                return redirect(home)
+                return redirect(url_for(home))
     return render_template('add.html')
 
 
 # Delete Function
-@app.route('/delete/<id>')
-def delete(id):
+@app.route('/delete/<int:id>')
+def delete(id, filename='data.json'):
     with open("data.json") as json_file:
         cont = json.load(json_file)
         val = cont['journal']
-        j_entry = get_id(val, id)
-        val.remove(0)
+        get_list = get_id(val, id)
+        print(get_list)
+        val.remove(get_list)
+
+        # Writing the contents into the file
+        with open(filename, 'w') as f:
+            json.dump(cont, f, indent=4, sort_keys=True)
+            home = 'home'
+
+        return redirect(url_for(home))
     return redirect(url_for('home'))
