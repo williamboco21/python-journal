@@ -9,6 +9,11 @@ app = Flask(__name__)
 with open('data.json', 'r') as f:
     data = json.load(f)
 
+# Function to get the id of the list
+def get_id(data, id):
+    for i in data:
+        if i['id'] == id:
+            return i
 
 # Home Decorator
 @app.route('/home')
@@ -38,12 +43,12 @@ def add(filename='data.json'):
             cont = json.load(json_file)
 
             val = cont["journal"]
-            add_id = len(val) + 1
+            journal_id = len(val) + 1
             title = request.form['title']
             date = datetime.now().strftime('%Y-%m-%d')
             body = request.form['body']
             values = {
-                "id": add_id,
+                "id": journal_id,
                 "body": body,
                 "date": date,
                 "title": title
@@ -55,11 +60,16 @@ def add(filename='data.json'):
                 json.dump(cont, f, indent=4, sort_keys=True)
                 home = '/home'
 
-            return redirect(home)
+                return redirect(home)
     return render_template('add.html')
 
 
 # Delete Function
-@app.route('/delete')
-def delete():
+@app.route('/delete/<id>')
+def delete(id):
+    with open("data.json") as json_file:
+        cont = json.load(json_file)
+        val = cont['journal']
+        j_entry = get_id(val, id)
+        val.remove(0)
     return redirect(url_for('home'))

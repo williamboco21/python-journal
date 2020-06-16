@@ -1,28 +1,16 @@
 {
     "journal": [
         {
-            "body": "This my first text in the body",
+            "body": "Hello there! This is my first text in my journal",
+            "date": "2020-06-16",
+            "id": 1,
+            "title": "First Journal Entry"
+        },
+        {
+            "body": "This is why I love programming",
             "date": "2020-06-16",
             "id": 2,
-            "title": "My Journal"
-        },
-        {
-            "body": "rwerwerew",
-            "date": "2020-06-16",
-            "id": 2,
-            "title": "rwqr23"
-        },
-        {
-            "body": "35252",
-            "date": "2020-06-16",
-            "id": 3,
-            "title": "rwerwe"
-        },
-        {
-            "body": "erwerwerwe",
-            "date": "2020-06-16",
-            "id": 4,
-            "title": "53255325"
+            "title": "Second Journal Entry"
         }
     ]
 }
