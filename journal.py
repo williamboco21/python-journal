@@ -1,9 +1,12 @@
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, url_for, redirect, request, flash
 from datetime import datetime
 import json
 
 # initializing the application object
 app = Flask(__name__)
+
+# Secret key for the flash messages
+app.secret_key = "Secret Key"
 
 # Function to get the id of the list
 def get_id(val, id):
@@ -37,7 +40,6 @@ def login():
 # Add Function
 @app.route('/add', methods=['GET', 'POST'])
 def add(filename='data.json'):
-    add = 'add'
     if request.method == "POST":
         # Appending the form values
         with open("data.json") as json_file:
@@ -48,13 +50,11 @@ def add(filename='data.json'):
             title = request.form['title']
             date = datetime.now().strftime('%Y-%m-%d')
             body = request.form['body']
-            image = request.form['image']
             values = {
                 "id": journal_id,
                 "body": body,
                 "date": date,
                 "title": title,
-                "image": image
             }
             val.append(values)
 
@@ -62,9 +62,11 @@ def add(filename='data.json'):
             with open(filename, 'w') as f:
                 home = 'home'
                 json.dump(cont, f, indent=4, sort_keys=True)
+                f.close()
+                flash("Added a new Journal Entry successfully.")
 
                 return redirect(url_for(home))
-    return redirect(url_for(add))
+    return render_template('add.html')
 
 
 # Delete Function
@@ -80,6 +82,8 @@ def delete(id, filename='data.json'):
         # Writing the contents into the file
         with open(filename, 'w') as f:
             json.dump(cont, f, indent=4, sort_keys=True)
+            f.close()
             home = 'home'
+            flash("Journal Entry has been deleted successfully")
 
             return redirect(url_for(home))

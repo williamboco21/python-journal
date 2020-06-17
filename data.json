@@ -1,16 +1,28 @@
 {
     "journal": [
         {
-            "body": "23523535352",
-            "date": "2020-06-16",
+            "body": "Hi there! Good morning and have a great day!",
+            "date": "2020-06-17",
             "id": 1,
-            "title": "erfewewrqwe"
+            "title": "My First Journal Entry"
         },
         {
-            "body": "wfweteryw3tw34t",
-            "date": "2020-06-16",
+            "body": "I love watching anime. How about you?",
+            "date": "2020-06-17",
             "id": 2,
-            "title": "3253253532"
+            "title": "My Second Journal Entry"
+        },
+        {
+            "body": "I love eating Japanese food.",
+            "date": "2020-06-17",
+            "id": 3,
+            "title": "My Third Journal Entry"
+        },
+        {
+            "body": "I am finishing up Fire Force anime.",
+            "date": "2020-06-18",
+            "id": 4,
+            "title": "My Fourth Journal Entry"
         }
     ]
 }

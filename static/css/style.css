@@ -17,3 +17,7 @@ table, th, td {
     margin-bottom: 5rem;
 }
 
+.form-control {
+    width: 30% !important;
+    margin-left: 15rem;
+}
