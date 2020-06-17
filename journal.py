@@ -5,10 +5,6 @@ import json
 # initializing the application object
 app = Flask(__name__)
 
-# loading the JSON data file and parsing
-with open('data.json', 'r') as f:
-    data = json.load(f)
-
 # Function to get the id of the list
 def get_id(val, id):
     for i in val:
@@ -19,6 +15,10 @@ def get_id(val, id):
 # Home Decorator
 @app.route('/home')
 def home():
+    # loading the JSON data file and parsing
+    with open('data.json', 'r') as f:
+        data = json.load(f)
+
     return render_template('home.html', data=data)
 
 
@@ -37,8 +37,8 @@ def login():
 # Add Function
 @app.route('/add', methods=['GET', 'POST'])
 def add(filename='data.json'):
+    add = 'add'
     if request.method == "POST":
-
         # Appending the form values
         with open("data.json") as json_file:
             cont = json.load(json_file)
@@ -48,21 +48,23 @@ def add(filename='data.json'):
             title = request.form['title']
             date = datetime.now().strftime('%Y-%m-%d')
             body = request.form['body']
+            image = request.form['image']
             values = {
                 "id": journal_id,
                 "body": body,
                 "date": date,
-                "title": title
+                "title": title,
+                "image": image
             }
             val.append(values)
 
             # Writing the contents into the file
             with open(filename, 'w') as f:
-                json.dump(cont, f, indent=4, sort_keys=True)
                 home = 'home'
+                json.dump(cont, f, indent=4, sort_keys=True)
 
                 return redirect(url_for(home))
-    return render_template('add.html')
+    return redirect(url_for(add))
 
 
 # Delete Function
@@ -80,5 +82,4 @@ def delete(id, filename='data.json'):
             json.dump(cont, f, indent=4, sort_keys=True)
             home = 'home'
 
-        return redirect(url_for(home))
-    return redirect(url_for('home'))
+            return redirect(url_for(home))
