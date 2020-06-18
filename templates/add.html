@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
-{% include 'header.html' %}
 
-{% block title %}Add |{% endblock %}
-
-
+{% block title %} Add | {% endblock %}
 
 {% block body %}
+{% include 'header.html' %}
+
          <div class="container">
             <div class="content text-center">
                  <h2 class="text-center title-add">Add <b> Journal </b></h2>
-                 <form action="{{url_for('add')}}" enctype="application/json" method="POST">
+                 <form action="{{url_for('add')}}" enctype="multipart/form-data" method="POST">
                        <div class="form-group">
                           <label>Title:</label>
                           <input type="text" class="form-control" name="title" required="1">
