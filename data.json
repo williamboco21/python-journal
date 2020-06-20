@@ -1,22 +1,16 @@
 {
     "journal": [
         {
-            "body": "Hi there! Good morning and have a great day!",
-            "date": "2020-06-17",
+            "body": "I love watching anime.",
+            "date": "2020-06-18",
             "id": 1,
             "title": "My First Journal Entry"
         },
         {
-            "body": "I love watching anime. How about you?",
-            "date": "2020-06-17",
+            "body": "I love eating Korean and Japanese Food.",
+            "date": "2020-06-18",
             "id": 2,
             "title": "My Second Journal Entry"
-        },
-        {
-            "body": "I love eating Japanese food.",
-            "date": "2020-06-17",
-            "id": 3,
-            "title": "My Third Journal Entry"
         }
     ]
 }

@@ -17,7 +17,7 @@ table, th, td {
     margin-bottom: 5rem;
 }
 
-.form-control {
-    width: 30% !important;
-    margin-left: 24rem !important;
+#title_input, #user_input, #pass_input {
+    width: 30%;
+    margin-left: 24rem;
 }

@@ -6,21 +6,21 @@
 {% include 'header.html' %}
 
          <div class="container">
-            <div class="content text-center">
+            <div class="content">
                  <h2 class="text-center title-add">Add <b> Journal </b></h2>
-                 <form action="{{url_for('add')}}" enctype="multipart/form-data" method="POST">
+                 <form action="{{url_for('add')}}" enctype="multipart/form-data" method="post">
                        <div class="form-group">
                           <label>Title:</label>
-                          <input type="text" class="form-control" name="title" required="1">
+                          <input id="title_input" type="text" class="form-control" name="title" required="1">
                        </div>
                         <div class="form-group">
                             <label>Body:</label>
-                            <input type="text" class="form-control" name="body" required="1">
+                            <textarea id="summernote" name="body"></textarea>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Add Journal</button>
                         </div>
-                    </form>
+                 </form>
             </div>
          </div>
 {% endblock %}

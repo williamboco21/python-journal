@@ -50,6 +50,7 @@ def add(filename='data.json'):
             title = request.form['title']
             date = datetime.now().strftime('%Y-%m-%d')
             body = request.form['body']
+
             values = {
                 "id": journal_id,
                 "body": body,
